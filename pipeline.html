@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline Visibility — Arina Lowery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <a href="index.html" class="back-link">&larr; Back to Work</a>
+
+  <article class="case-study">
+
+    <!-- Hero -->
+    <header class="cs-hero">
+      <span class="cs-tag">Software / B2B</span>
+      <h1 class="cs-title">Release managers couldn't see what was actually in their release — so blockers stayed hidden until it was too late.</h1>
+      <p class="cs-subtitle">Redesigning the release portfolio view to give release managers full pipeline visibility across triggered, sub-release, and attached associations.</p>
+    </header>
+
+    <!-- Context Bar -->
+    <section class="cs-context">
+      <div class="cs-context-item">
+        <span class="cs-context-label">Role</span>
+        <p>UX/UI Designer</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Methods</span>
+        <p>Heuristic evaluation, cognitive walkthrough, proto-persona, task scenarios</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Tools</span>
+        <p>Figma</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Constraints</span>
+        <p>No access to end users during this iteration</p>
+      </div>
+    </section>
+
+    <!-- Background -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Background</h2>
+      <p class="cs-body">The product supports three association types between pipelines and releases: <strong>Triggered</strong> (pipelines trigger other pipelines via tasks), <strong>Sub-release</strong> (releases manually added under a parent), and <strong>Attached</strong> (pipeline runs attached to a release).</p>
+      <p class="cs-body">The existing portfolio view only showed Triggered pipelines — obscuring the full picture. Release managers had no single view of everything associated with their release, making it impossible to identify blockers quickly.</p>
+    </section>
+
+    <!-- Problem -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Key UX Issues</h2>
+      <ul class="cs-list">
+        <li><strong>Invisible scope coupling</strong> — What appears in portfolio views depends on selections made elsewhere in the app, but this is never communicated. Filters and data seem unpredictable.</li>
+        <li><strong>Context switching pain</strong> — Checking different pipeline runs within a release is cumbersome. Definition vs. runtime portfolios differ without explanation.</li>
+        <li><strong>Ambiguous sub-release list</strong> — The sub-release dropdown doesn't distinguish triggered vs. manually added items.</li>
+        <li><strong>Visual complexity</strong> — Stakeholders asked for the ability to collapse branches in the graph to manage noise.</li>
+      </ul>
+      <div class="cs-image-group">
+        <figure class="cs-figure">
+          <img src="images/pipeline/CLs6OTUf38B1YPoI.webp" alt="Original portfolio view showing limited pipeline visibility">
+          <figcaption>Original portfolio view — only Triggered pipelines visible</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img src="images/pipeline/fHOm0OGVST41WXWI.webp" alt="Second view of original portfolio limitations">
+          <figcaption>Original portfolio view — missing sub-releases and attached pipelines</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Approach</h2>
+      <div class="cs-process-steps">
+        <div class="cs-step">
+          <span class="cs-step-number">01</span>
+          <p>Conducted heuristic evaluation (Nielsen's 10) and cognitive walkthrough with internal stakeholders</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">02</span>
+          <p>Built proto-persona and task scenarios to frame design decisions</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">03</span>
+          <p>Researched common DevOps portfolio patterns for prior art</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">04</span>
+          <p>Designed solutions addressing each identified issue, iterated with stakeholder feedback</p>
+        </div>
+      </div>
+      <div class="cs-image-group">
+        <figure class="cs-figure">
+          <img src="images/pipeline/kt4HzVIW4G7EfWMA.webp" alt="Proto-persona for release manager">
+          <figcaption>Proto-persona — Release Manager</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Design Solutions</h2>
+
+      <!-- Solution 1 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">01</span>
+          <span class="cs-finding-heuristic">Visibility of System Status</span>
+        </div>
+        <h3 class="cs-finding-title">Unified coding keys for all association types</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">What it does</span>
+            <p>Portfolio now renders Triggered, Sub-release, and Attached items together. A legend with badges identifies each type: Triggered (solid line), Sub-release (badge), Attached (dotted line).</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Why it matters</span>
+            <p>Release managers can finally see the full scope of their release in one view without guessing what's missing.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/pipeline/CNWrT8gnhpcX7cFT.webp" alt="Updated coding keys showing all pipeline types">
+        </div>
+      </div>
+
+      <!-- Solution 2 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">02</span>
+          <span class="cs-finding-heuristic">Flexibility &amp; Efficiency</span>
+        </div>
+        <h3 class="cs-finding-title">Snapshot dropdown for pipeline run context</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">What it does</span>
+            <p>Provides full visibility of the workflow process inline. Users can see at what point something went wrong without leaving the page.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Why it matters</span>
+            <p>Eliminates the need to context-switch to a different section of the app to check on pipeline runs — faster blocker discovery.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/pipeline/9btj4OvKw9SB8D3E.webp" alt="Snapshot dropdown showing pipeline run details">
+        </div>
+      </div>
+
+      <!-- Solution 3 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">03</span>
+          <span class="cs-finding-heuristic">Recognition over Recall</span>
+        </div>
+        <h3 class="cs-finding-title">Type chips and contextual info for every item</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">What it does</span>
+            <p>Each item shows a chip indicating its type (pipeline, sub-release). An info icon reveals full details — including what entity called it and which task triggered it.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Why it matters</span>
+            <p>Users can search and scan faster. No more guessing the relationship between items in the graph.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/pipeline/Tg5qxZvUi9pOgwq4.webp" alt="Updated release information with type chips">
+        </div>
+      </div>
+
+      <!-- Solution 4 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">04</span>
+          <span class="cs-finding-heuristic">Aesthetic &amp; Minimalist Design</span>
+        </div>
+        <h3 class="cs-finding-title">Collapse/expand for noise reduction</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">What it does</span>
+            <p>Branches in the graph can be collapsed when only a certain part of the release needs attention.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Why it matters</span>
+            <p>Complex releases with many branches become manageable. Users focus on what matters without visual overload.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/pipeline/EMObRHleVCB4kGQT.webp" alt="Collapsed branches reducing visual noise">
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Outcome</h2>
+      <p class="cs-body">By making scope explicit, unifying association types in both graph and list views, and introducing collapse/expand patterns, the release portfolio becomes a trustworthy control panel rather than a static diagram.</p>
+      <div class="cs-outcome-grid">
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number cs-outcome-number--small">For users</span>
+          <span class="cs-outcome-label">Clearer mental models, faster blocker discovery, less context switching</span>
+        </div>
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number cs-outcome-number--small">For business</span>
+          <span class="cs-outcome-label">Reduced risk at release time, quicker status reporting</span>
+        </div>
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number cs-outcome-number--small">For product</span>
+          <span class="cs-outcome-label">Consistent IA that scales to complex portfolios without losing information</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">What's Next</h2>
+      <p class="cs-body">Given the absence of external user testing, outcomes are framed as hypotheses. The next step is to validate through lightweight usability studies and product analytics, then iterate on areas with highest impact — such as blocker panel effectiveness and saved views adoption.</p>
+    </section>
+
+    <!-- Footer nav -->
+    <nav class="cs-footer-nav">
+      <a href="index.html" class="cs-footer-link">&larr; Back to all projects</a>
+    </nav>
+
+  </article>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

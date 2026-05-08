@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EzFill Heuristic Evaluation — Arina Lowery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Back navigation -->
+  <a href="index.html" class="back-link">&larr; Back to Work</a>
+
+  <article class="case-study">
+
+    <!-- Hero -->
+    <header class="cs-hero">
+      <span class="cs-tag">APP / B2C</span>
+      <h1 class="cs-title">An on-demand fuel delivery app was losing users — but nobody knew why.</h1>
+      <p class="cs-subtitle">A heuristic evaluation of EzFill's mobile application, identifying critical usability violations and delivering actionable recommendations to the client.</p>
+    </header>
+
+    <!-- Context Bar -->
+    <section class="cs-context">
+      <div class="cs-context-item">
+        <span class="cs-context-label">Role</span>
+        <p>UX Designer (team of 4)</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Methods</span>
+        <p>Heuristic evaluation, Nielsen's 10 heuristics, accessibility audit</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Tools</span>
+        <p>Figma</p>
+      </div>
+      <div class="cs-context-item">
+        <span class="cs-context-label">Deliverable</span>
+        <p>Prioritized findings report + client presentation</p>
+      </div>
+    </section>
+
+    <!-- Background -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Background</h2>
+      <p class="cs-body">EzFill is a mobile fuel delivery service that lets users order gas refills for their vehicles anywhere. As the company prepared to expand beyond its initial market, they needed confidence that their app could scale without frustrating new users.</p>
+      <p class="cs-body">Our team was brought in to evaluate the application's usability and accessibility — identifying friction points before they became growth blockers.</p>
+    </section>
+
+    <!-- Process -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Process</h2>
+      <div class="cs-process-steps">
+        <div class="cs-step">
+          <span class="cs-step-number">01</span>
+          <p>Mapped critical user flows and distributed them across team members</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">02</span>
+          <p>Conducted screen-by-screen analysis against Nielsen's 10 heuristics</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">03</span>
+          <p>Prioritized findings by severity and user impact</p>
+        </div>
+        <div class="cs-step">
+          <span class="cs-step-number">04</span>
+          <p>Compiled recommendations and presented to the client</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Key Findings</h2>
+      <p class="cs-body cs-body--muted">We identified 15+ usability violations across the app. Here are the three most impactful ones.</p>
+
+      <!-- Finding 1 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">01</span>
+          <span class="cs-finding-heuristic">Consistency &amp; Standards</span>
+        </div>
+        <h3 class="cs-finding-title">Confusing first screen breaks user expectations</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Issue</span>
+            <p>The sign-up flow opens with a "Location" screen — an unexpected first step that's inconsistent with how most apps onboard. Users didn't understand why they were being asked for their location before even creating an account. The grey CTA button also failed contrast requirements.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Recommendation</span>
+            <p>Reword the title to explain the app is checking service availability. Move location to a contextually appropriate step. Use darker button colors that pass AA contrast, and left-align titles for scannability.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/ezfill/b8135UPltPu2B2dY.png" alt="EzFill Location screen showing usability issues">
+        </div>
+      </div>
+
+      <!-- Finding 2 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">02</span>
+          <span class="cs-finding-heuristic">Flexibility &amp; Efficiency of Use</span>
+        </div>
+        <h3 class="cs-finding-title">The app's most important action was nearly invisible</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Issue</span>
+            <p>"Add Vehicle" is the primary action in the app — nothing works without it. Yet the "+" button was small, colorless, and overshadowed by the logo. Users couldn't figure out how to get started.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Recommendation</span>
+            <p>Make the add button orange (matching the app's action color), add the words "Add Vehicle," and position it prominently below the promotion banner. The primary action should be unmissable.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/ezfill/AhTn5H5NTqjeeD0y.png" alt="EzFill Add Vehicle screen showing low visibility of primary action">
+        </div>
+      </div>
+
+      <!-- Finding 3 -->
+      <div class="cs-finding">
+        <div class="cs-finding-header">
+          <span class="cs-finding-number">03</span>
+          <span class="cs-finding-heuristic">User Control &amp; Freedom</span>
+        </div>
+        <h3 class="cs-finding-title">Ambiguous confirmation dialogs created doubt</h3>
+        <div class="cs-finding-body">
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Issue</span>
+            <p>The order confirmation pop-up asked two questions at once and used vague "Yes/No" buttons. Users couldn't tell what would happen when they tapped — especially risky for an action involving payment.</p>
+          </div>
+          <div class="cs-finding-detail">
+            <span class="cs-detail-label">Recommendation</span>
+            <p>Replace "Yes/No" with clear action verbs ("Confirm Order" / "Go Back"). Remove the redundant second question. Users should never have to guess what a button does on a confirmation screen.</p>
+          </div>
+        </div>
+        <div class="cs-finding-visual">
+          <img src="images/ezfill/JMtM1i9B4Aa48Q4e.png" alt="EzFill confirmation dialog with ambiguous Yes/No buttons">
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Patterns -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Recurring Patterns</h2>
+      <p class="cs-body">Beyond individual screens, we surfaced systemic issues across the app:</p>
+      <ul class="cs-list">
+        <li>Color contrast failures on multiple screens (orange-on-white, grey-on-white)</li>
+        <li>Inconsistent error message styling — different colors, positions, and icons across flows</li>
+        <li>Mixed list layouts (some divided by lines, some not) breaking visual unity</li>
+        <li>Inconsistent title alignment and placement across pages</li>
+      </ul>
+      <p class="cs-body">These patterns pointed to a lack of a unified design system — a foundational recommendation we included in our report.</p>
+    </section>
+
+    <!-- Outcome -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">Outcome</h2>
+      <p class="cs-body">We delivered a comprehensive findings report and presented it directly to the EzFill team. The client implemented several of our recommendations — their product now shows improved accessibility and visual consistency across key flows.</p>
+      <div class="cs-outcome-grid">
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number">15+</span>
+          <span class="cs-outcome-label">Usability violations identified</span>
+        </div>
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number">5</span>
+          <span class="cs-outcome-label">Core user flows evaluated</span>
+        </div>
+        <div class="cs-outcome-item">
+          <span class="cs-outcome-number">4</span>
+          <span class="cs-outcome-label">Critical issues flagged</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="cs-section">
+      <h2 class="cs-section-title">What I Took Away</h2>
+      <p class="cs-body">This project reinforced that the biggest usability problems often aren't about aesthetics — they're about structure. A misplaced screen in a flow or an invisible primary action costs more than a bad color choice. Evaluating someone else's product sharpened my ability to separate personal preference from genuine usability issues grounded in principles.</p>
+    </section>
+
+    <!-- Footer nav -->
+    <nav class="cs-footer-nav">
+      <a href="index.html" class="cs-footer-link">&larr; Back to all projects</a>
+    </nav>
+
+  </article>
+
+  <script src="case-study.js"></script>
+</body>
+</html>
