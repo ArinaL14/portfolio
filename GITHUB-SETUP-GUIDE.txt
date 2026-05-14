@@ -1,0 +1,306 @@
+# GitHub Setup Guide for Portfolio
+
+A step-by-step guide to hosting your portfolio on GitHub Pages with a custom domain.
+
+---
+
+## Do I Need GitHub Actions?
+
+**No.** Your portfolio is plain HTML/CSS/JS with no build step. GitHub Pages can serve it directly from your repo. GitHub Actions is only needed if you have a framework (React, Next.js, etc.) that needs to compile before deploying. You don't — so skip it.
+
+---
+
+## Part 1: Initial Setup (First Time Only)
+
+### Step 1: Install Git (if not already installed)
+
+Open Terminal and run:
+
+```bash
+git --version
+```
+
+If it's not installed, it will prompt you to install Xcode Command Line Tools. Follow the prompts.
+
+### Step 2: Configure Git with your identity
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your-github-email@example.com"
+```
+
+Use the email associated with your GitHub account (ArinaL14).
+
+### Step 3: Copy the portfolio folder to your personal computer
+
+Copy the entire `portfolio` folder (with all subfolders) to your personal computer. You can use AirDrop, a USB drive, or zip it and email it to yourself.
+
+The folder structure should look like:
+
+```
+portfolio/
+  index.html
+  styles.css
+  script.js
+  case-study.css
+  case-study.js
+  ezfill.html
+  pipeline.html
+  release.html
+  images/
+    ezfill/
+    pipeline/
+    release/
+```
+
+### Step 4: Create the repository on GitHub
+
+1. Go to https://github.com and log in as ArinaL14
+2. Click the "+" icon (top right) → "New repository"
+3. Name it `portfolio` (or `ArinaL14.github.io` for a root domain site)
+4. Set to **Public**
+5. Do NOT check "Add a README" or ".gitignore"
+6. Click "Create repository"
+
+### Step 5: Push your code to GitHub
+
+Open Terminal, navigate to your portfolio folder, and run:
+
+```bash
+cd /path/to/your/portfolio
+
+git init
+git add .
+git commit -m "Initial portfolio"
+git remote add origin https://github.com/ArinaL14/portfolio.git
+git branch -M main
+git push -u origin main
+```
+
+It will ask for your GitHub username and password. For the password, you need a **Personal Access Token** (GitHub no longer accepts regular passwords):
+
+1. Go to https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Give it a name like "portfolio push"
+4. Check the `repo` box (full control of private repositories)
+5. Click "Generate token"
+6. Copy the token — use it as your password when prompted
+
+Your code is now on GitHub.
+
+---
+
+## Part 2: Enable GitHub Pages (Free Hosting)
+
+### Step 1: Go to repo settings
+
+1. Open your repo: https://github.com/ArinaL14/portfolio
+2. Click "Settings" tab (top menu)
+3. In the left sidebar, click "Pages"
+
+### Step 2: Configure Pages
+
+1. Under "Source", select **Deploy from a branch**
+2. Under "Branch", select **main** and folder **/ (root)**
+3. Click "Save"
+
+### Step 3: Wait 1-2 minutes
+
+GitHub will build and deploy your site. Once ready, you'll see a green banner with your URL:
+
+```
+https://arinal14.github.io/portfolio/
+```
+
+(If you named the repo `ArinaL14.github.io` instead, the URL would be `https://arinal14.github.io/`)
+
+---
+
+## Part 3: Custom Domain (Optional)
+
+### Step 1: Buy a domain
+
+Buy from any registrar (Namecheap, Cloudflare, Porkbun, etc.). Something like `arinalowery.design` or `arinalowery.com`.
+
+### Step 2: Configure DNS at your registrar
+
+Add these DNS records:
+
+For an apex domain (e.g., `arinalowery.design`):
+```
+Type: A
+Name: @
+Value: 185.199.108.153
+
+Type: A
+Name: @
+Value: 185.199.109.153
+
+Type: A
+Name: @
+Value: 185.199.110.153
+
+Type: A
+Name: @
+Value: 185.199.111.153
+```
+
+For www subdomain:
+```
+Type: CNAME
+Name: www
+Value: arinal14.github.io
+```
+
+### Step 3: Tell GitHub about your domain
+
+1. Go to repo Settings → Pages
+2. Under "Custom domain", enter your domain (e.g., `arinalowery.design`)
+3. Click Save
+4. Check "Enforce HTTPS" (may take a few minutes to become available)
+
+DNS propagation can take up to 24 hours, but usually works within 10-30 minutes.
+
+---
+
+## Part 4: Making Changes and Pushing Updates
+
+This is the workflow you'll use every time you edit your portfolio.
+
+### Step 1: Make your changes
+
+Edit files in your portfolio folder using any text editor (VS Code, Sublime Text, or even TextEdit).
+
+### Step 2: Check what changed
+
+```bash
+cd /path/to/your/portfolio
+git status
+```
+
+This shows which files you modified, added, or deleted.
+
+### Step 3: Stage your changes
+
+To add specific files:
+```bash
+git add index.html styles.css
+```
+
+To add everything that changed:
+```bash
+git add .
+```
+
+### Step 4: Commit
+
+```bash
+git commit -m "Brief description of what you changed"
+```
+
+Good commit messages:
+- "Add new case study for crypto dashboard"
+- "Update about section bio"
+- "Fix mobile layout spacing"
+
+Bad commit messages:
+- "update"
+- "changes"
+- "asdf"
+
+### Step 5: Push to GitHub
+
+```bash
+git push
+```
+
+That's it. GitHub Pages will automatically redeploy within 1-2 minutes.
+
+---
+
+## Part 5: Common Scenarios
+
+### Adding a new case study
+
+1. Create your new HTML file (e.g., `new-project.html`)
+2. Add images to `images/new-project/`
+3. Add the card to `index.html`
+4. Then:
+
+```bash
+git add .
+git commit -m "Add new case study: project name"
+git push
+```
+
+### Fixing a typo
+
+1. Edit the file
+2. Then:
+
+```bash
+git add filename.html
+git commit -m "Fix typo in about section"
+git push
+```
+
+### Deleting a case study
+
+1. Remove the `<section>` from `index.html`
+2. Delete the HTML file
+3. Optionally delete the images folder
+4. Then:
+
+```bash
+git add .
+git commit -m "Remove case study: project name"
+git push
+```
+
+### Something went wrong and you want to undo
+
+To undo uncommitted changes to a single file:
+```bash
+git checkout -- filename.html
+```
+
+To undo ALL uncommitted changes (careful — this loses your work):
+```bash
+git checkout -- .
+```
+
+To undo the last commit but keep the changes:
+```bash
+git reset --soft HEAD~1
+```
+
+---
+
+## Quick Reference
+
+| Action | Command |
+|---|---|
+| Check what changed | `git status` |
+| Stage all changes | `git add .` |
+| Stage specific file | `git add filename.html` |
+| Commit | `git commit -m "message"` |
+| Push to GitHub | `git push` |
+| Pull latest (if edited on GitHub) | `git pull` |
+| See commit history | `git log --oneline` |
+| Undo uncommitted changes | `git checkout -- filename` |
+
+---
+
+## Troubleshooting
+
+**"Permission denied" when pushing:**
+Your token may have expired. Generate a new one at https://github.com/settings/tokens
+
+**Site not updating after push:**
+GitHub Pages can take 1-2 minutes. Check the deployment status at your repo → Actions tab.
+
+**Images not loading on the live site:**
+Check that filenames match exactly (case-sensitive). `Image.PNG` and `image.png` are different on GitHub.
+
+**Custom domain not working:**
+DNS can take up to 24 hours. Verify your records at https://www.whatsmydns.net/
